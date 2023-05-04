@@ -5,7 +5,7 @@ import Note from './Note'
 import Root from './Root'
 import Home from './Home'
 import Notes, { loader as notesLoader } from './Notes'
-import Albums from './Albums'
+import Albums, { loader as albumsLoader } from './Albums'
 
 export default createBrowserRouter([
   {
@@ -29,6 +29,7 @@ export default createBrowserRouter([
       {
         path: 'albums',
         element: <Albums />,
+        loader: albumsLoader,
       },
     ],
   },
