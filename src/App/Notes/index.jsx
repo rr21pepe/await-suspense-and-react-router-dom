@@ -1,4 +1,5 @@
 import NotesView from './View'
+import loader from './loader'
 
 export default function Notes() {
   return (
@@ -16,3 +17,5 @@ export default function Notes() {
     />
   )
 }
+
+export { loader }
