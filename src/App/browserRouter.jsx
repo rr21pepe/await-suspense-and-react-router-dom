@@ -4,6 +4,7 @@ import Error from './Error'
 import Note from './Note'
 import Root from './Root'
 import Home from './Home'
+import Notes from './Notes'
 
 export default createBrowserRouter([
   {
@@ -14,6 +15,10 @@ export default createBrowserRouter([
       {
         path: '/',
         element: <Home />,
+      },
+      {
+        path: 'notes',
+        element: <Notes />,
       },
       {
         path: 'notes/:id',
