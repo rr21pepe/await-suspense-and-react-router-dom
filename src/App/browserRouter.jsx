@@ -5,6 +5,7 @@ import Note from './Note'
 import Root from './Root'
 import Home from './Home'
 import Notes from './Notes'
+import Albums from './Albums'
 
 export default createBrowserRouter([
   {
@@ -23,6 +24,10 @@ export default createBrowserRouter([
       {
         path: 'notes/:id',
         element: <Note />,
+      },
+      {
+        path: 'albums',
+        element: <Albums />,
       },
     ],
   },

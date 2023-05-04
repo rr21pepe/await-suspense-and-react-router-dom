@@ -8,6 +8,7 @@ export default function Menu() {
           <li>
             <NavLink to="/">Inicio</NavLink>
             <NavLink to="/notes">Notas</NavLink>
+            <NavLink to="/albums">Álbumes</NavLink>
           </li>
         </ul>
       </nav>
