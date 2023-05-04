@@ -6,6 +6,7 @@ import Root from './Root'
 import Home from './Home'
 import Notes, { loader as notesLoader } from './Notes'
 import Albums, { loader as albumsLoader } from './Albums'
+import Album, { loader as albumLoader } from './Album'
 
 export default createBrowserRouter([
   {
@@ -30,6 +31,11 @@ export default createBrowserRouter([
         path: 'albums',
         element: <Albums />,
         loader: albumsLoader,
+      },
+      {
+        path: 'albums/:id',
+        element: <Album />,
+        loader: albumLoader,
       },
     ],
   },
