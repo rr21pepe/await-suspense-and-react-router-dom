@@ -2,15 +2,23 @@ import { createBrowserRouter } from 'react-router-dom'
 
 import Error from './Error'
 import Note from './Note'
+import Root from './Root'
+import Home from './Home'
 
 export default createBrowserRouter([
   {
     path: '/',
-    element: <h1>Inicio</h1>,
+    element: <Root />,
     errorElement: <Error />,
-  },
-  {
-    path: 'notes/:id',
-    element: <Note />,
+    children: [
+      {
+        path: '/',
+        element: <Home />,
+      },
+      {
+        path: 'notes/:id',
+        element: <Note />,
+      },
+    ],
   },
 ])
