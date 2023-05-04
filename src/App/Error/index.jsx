@@ -1,11 +1,11 @@
 import { useRouteError } from 'react-router-dom'
 
-import NotFound from './404'
+import Error404 from './404'
 
 export default function Error() {
   const error = useRouteError()
 
-  if (error.status === 404) return <NotFound />
+  if (error.status === 404) return <Error404 />
 
   return (
     <div>
