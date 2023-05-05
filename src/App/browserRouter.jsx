@@ -5,8 +5,7 @@ import Note from './Note'
 import Root from './Root'
 import Home from './Home'
 import Notes, { loader as notesLoader } from './Notes'
-import Albums, { loader as albumsLoader } from './Albums'
-import Album, { loader as albumLoader } from './Album'
+import Albums, { loader as albumsLoader, Album, albumLoader } from './Albums'
 
 export default createBrowserRouter([
   {
