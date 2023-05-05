@@ -1,6 +1,8 @@
-import { useLoaderData } from 'react-router-dom'
+import { Suspense } from 'react'
+import { useLoaderData, Await } from 'react-router-dom'
 
 import AlbumsView from './View'
+import LoadingView from './LoadingView'
 import loader from './loader'
 import Album, { loader as albumLoader } from './Album'
 import NewAlbum, {
@@ -12,9 +14,18 @@ import NewAlbum, {
 } from './NewAlbum'
 
 export default function Albums() {
-  const { albums } = useLoaderData()
+  const data = useLoaderData()
 
-  return <AlbumsView albums={albums} />
+  return (
+    <Suspense fallback={<LoadingView />}>
+      <Await
+        resolve={data.albums}
+        errorElement={<p>Error cargando los álbumes</p>}
+      >
+        {albums => <AlbumsView albums={albums} />}
+      </Await>
+    </Suspense>
+  )
 }
 
 export {
