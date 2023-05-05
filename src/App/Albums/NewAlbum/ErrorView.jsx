@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom'
 
-export default function ErrorView() {
+import { NewAlbumNetworkError } from './action'
+import NetworkErrorView from './NetworkErrorView'
+
+export default function ErrorView({ error }) {
+  if (error instanceof NewAlbumNetworkError) return <NetworkErrorView />
+
   return (
     <div>
       <h1>No hemos podido crear el álbum</h1>

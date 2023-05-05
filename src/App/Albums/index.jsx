@@ -6,7 +6,9 @@ import Album, { loader as albumLoader } from './Album'
 import NewAlbum, {
   create as createNewAlbum,
   NewAlbumError,
+  NewAlbumNetworkError,
   ErrorView as NewAlbumErrorView,
+  NetworkView as NewAlbumNetworkErrorView,
 } from './NewAlbum'
 
 export default function Albums() {
@@ -23,4 +25,6 @@ export {
   createNewAlbum,
   NewAlbumError,
   NewAlbumErrorView,
+  NewAlbumNetworkError,
+  NewAlbumNetworkErrorView,
 }

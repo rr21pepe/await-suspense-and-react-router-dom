@@ -4,6 +4,8 @@ const DEFAULT_USER_ID = 1
 
 export class NewAlbumError extends Error {}
 
+export class NewAlbumNetworkError extends NewAlbumError {}
+
 export default async function create({ request, _params }) {
   const data = await request.formData()
 
@@ -13,16 +15,19 @@ export default async function create({ request, _params }) {
   }
 
   try {
-    const response = await fetch(
-      'https://jsonplaceholder.typicode.com/albums',
-      {
+    let response
+
+    try {
+      response = await fetch('https://jsonplaceholder.typicode.com/albums', {
         method: 'POST',
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
         },
         body: JSON.stringify(payload),
-      },
-    )
+      })
+    } catch (error) {
+      throw new NewAlbumNetworkError()
+    }
 
     const newAlbum = await response.json()
 
@@ -34,8 +39,6 @@ export default async function create({ request, _params }) {
     // que siempre existe.
     return redirect(`/albums/1`)
   } catch (error) {
-    throw new NewAlbumError(
-      'Hubo un problema creando el nuevo Album. Inténtalo de nuevo más tarde',
-    )
+    throw error
   }
 }

@@ -9,7 +9,7 @@ export default function Error() {
 
   if (error.status === 404) return <Error404 />
 
-  if (error instanceof NewAlbumError) return <NewAlbumErrorView />
+  if (error instanceof NewAlbumError) return <NewAlbumErrorView error={error} />
 
   return (
     <div>
