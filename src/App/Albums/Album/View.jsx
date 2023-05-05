@@ -5,6 +5,9 @@ export default function AlbumView({ album }) {
     <div>
       <h1>Detalle del albúm {album.id}</h1>
       <p>
+        <Link to="/albums/new">Nuevo</Link>
+      </p>
+      <p>
         <b>Título:</b> {album.title}
       </p>
       <p>

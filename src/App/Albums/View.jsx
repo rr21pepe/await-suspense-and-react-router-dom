@@ -4,6 +4,9 @@ export default function AlbumsView({ albums }) {
   return (
     <div>
       <h1>Álbumes</h1>
+      <p>
+        <Link to="new">Nuevo</Link>
+      </p>
       <ul>
         {albums.map(album => (
           <li key={album.id}>
