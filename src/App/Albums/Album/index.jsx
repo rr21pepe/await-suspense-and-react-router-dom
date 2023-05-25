@@ -1,12 +1,23 @@
-import { useLoaderData } from 'react-router-dom'
+import { Suspense } from 'react'
+import { useLoaderData, Await } from 'react-router-dom'
 
 import AlbumView from './View'
+import LoadingView from './LoadingView'
 import loader from './loader'
 
 export default function Album() {
-  const album = useLoaderData()
+  const data = useLoaderData()
 
-  return <AlbumView album={album} />
+  return (
+    <Suspense fallback={<LoadingView />}>
+      <Await
+        resolve={data.album}
+        errorElement={<p>Error cargando la información del álbum</p>}
+      >
+        {album => <AlbumView album={album} />}
+      </Await>
+    </Suspense>
+  )
 }
 
 export { loader }

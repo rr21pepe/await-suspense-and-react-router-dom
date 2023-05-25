@@ -1,6 +1,11 @@
+import { defer } from 'react-router-dom'
+
 export default async function loader({ params }) {
-  const album = await fetchAlbum(params.id)
-  return album
+  const albumPromise = fetchAlbum(params.id)
+
+  return defer({
+    album: albumPromise,
+  })
 }
 
 async function fetchAlbum(id) {
